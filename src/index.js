@@ -7,7 +7,7 @@ import { HashRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./assets/theme";
 import "normalize.css";
-// import "./global.less";
+import "antd/dist/antd.less";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
