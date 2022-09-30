@@ -6,7 +6,6 @@ import LongforItem from '@/components/longfor-item'
 import ScrollView from '@/base-ui/scroll-view';
 export default function HomeSectionV3(props) {
     const { infoData = {} } = props;
-    console.log(infoData);
     return (
         <HomeSectionV3Div>
             <SelectionTitle title={infoData?.title} subTitle={infoData?.subtitle
@@ -16,7 +15,8 @@ export default function HomeSectionV3(props) {
                 <ScrollView>
                     {
                         infoData.list.map(item => {
-                            return <LongforItem itemData={item} key={item.city} />
+
+                            return <LongforItem itemData={item} key={item.picture_url} />
                         })
                     }
                 </ScrollView>

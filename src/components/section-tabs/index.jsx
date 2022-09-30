@@ -1,8 +1,8 @@
 import ScrollView from '@/base-ui/scroll-view';
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import { SectionTabsDiv } from "./style"
 
-function SelectionTabs(props) {
+const SelectionTabs = memo((props) => {
     const { tabsData = [], tabClick = () => { } } = props;
     const [currenIndex, setCurrentIndex] = useState(0)
     return (
@@ -19,7 +19,7 @@ function SelectionTabs(props) {
             </ScrollView>
         </SectionTabsDiv>
     )
-}
+})
 
 
 

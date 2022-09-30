@@ -3,7 +3,7 @@ import SectionFooter from '@/components/section-footer'
 import SectionHotels from '@/components/section-hotels'
 import SectionTabs from "@/components/section-tabs"
 import SectionTitle from '@/components/section-title'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { HomeSectionV2Div } from './style'
 
 export default function HomeSectionV2(props) {
@@ -16,10 +16,9 @@ export default function HomeSectionV2(props) {
     tabsData.push("cda")
     tabsData.push("cea")
     //tabs的回调拿到数据
-    const tabClick = (item, index) => {
+    const tabClick = useCallback((item) => {
         setName(item)
-        console.log(item, index)
-    }
+    }, [])
     return (
         <HomeSectionV2Div>
             <SectionTitle title={infoData.title} subtitle={infoData.subtitle} />

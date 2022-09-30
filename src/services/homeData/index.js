@@ -26,4 +26,9 @@ export const homeApi = {
       url: "/home/longfor",
     });
   },
+  GetHomePlusData() {
+    return MyRequest.get({
+      url: "/home/plus",
+    });
+  },
 };

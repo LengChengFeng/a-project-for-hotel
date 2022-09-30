@@ -5,7 +5,8 @@ const {
     GetHomeHighScoreData,
     GetHomeDiscountData,
     GetHomeHotRecommendData,
-    GetHomeLongforData } = homeApi
+    GetHomeLongforData,
+    GetHomePlusData } = homeApi
 
 //性价比
 export const homeGoodPriceAction = createAsyncThunk("homeGoodPrice", async () => {
@@ -28,8 +29,13 @@ export const HomeHotRecommendDataAction = createAsyncThunk("homeRecommend", asyn
     return res
 })
 
-export const HomeLongforDataAction = createAsyncThunk("homeLongFor", async () => {
+export const HomeLongforDataAction = createAsyncThunk("homePlus", async () => {
     const res = await GetHomeLongforData()
+    return res
+})
+
+export const HomePlusDataAction = createAsyncThunk("homeLongFor", async () => {
+    const res = await GetHomePlusData()
     return res
 })
 
@@ -38,7 +44,8 @@ const initialState = {
     highScoreData: {},
     discountData: {},
     hotRecommendData: {},
-    longForData: {}
+    longForData: {},
+    homePlusData: {}
 }
 
 const homeReducer = createSlice({
@@ -57,6 +64,8 @@ const homeReducer = createSlice({
             state.hotRecommendData = payload
         }).addCase(HomeLongforDataAction.fulfilled, (state, { payload }) => {
             state.longForData = payload
+        }).addCase(HomePlusDataAction.fulfilled, (state, { payload }) => {
+            state.homePlusData = payload
         })
     }
 })
