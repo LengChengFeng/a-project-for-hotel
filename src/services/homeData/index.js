@@ -16,4 +16,14 @@ export const homeApi = {
       url: "/home/discount",
     });
   },
+  GetHomeHotRecommendData() {
+    return MyRequest.get({
+      url: "/home/hotrecommenddest",
+    });
+  },
+  GetHomeLongforData() {
+    return MyRequest.get({
+      url: "/home/longfor",
+    });
+  },
 };

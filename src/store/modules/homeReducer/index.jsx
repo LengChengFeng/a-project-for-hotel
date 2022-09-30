@@ -1,6 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { homeApi } from '@/services/homeData'
-const { GetGoodPriceData, GetHomeHighScoreData, GetHomeDiscountData } = homeApi
+const {
+    GetGoodPriceData,
+    GetHomeHighScoreData,
+    GetHomeDiscountData,
+    GetHomeHotRecommendData,
+    GetHomeLongforData } = homeApi
 
 //性价比
 export const homeGoodPriceAction = createAsyncThunk("homeGoodPrice", async () => {
@@ -18,10 +23,22 @@ export const HomeDiscountDataAction = createAsyncThunk("homeDiscount", async () 
     return res
 })
 
+export const HomeHotRecommendDataAction = createAsyncThunk("homeRecommend", async () => {
+    const res = await GetHomeHotRecommendData()
+    return res
+})
+
+export const HomeLongforDataAction = createAsyncThunk("homeLongFor", async () => {
+    const res = await GetHomeLongforData()
+    return res
+})
+
 const initialState = {
     goodPriceData: {},
     highScoreData: {},
-    discountData: {}
+    discountData: {},
+    hotRecommendData: {},
+    longForData: {}
 }
 
 const homeReducer = createSlice({
@@ -36,6 +53,10 @@ const homeReducer = createSlice({
             state.highScoreData = payload
         }).addCase(HomeDiscountDataAction.fulfilled, (state, { payload }) => {
             state.discountData = payload
+        }).addCase(HomeHotRecommendDataAction.fulfilled, (state, { payload }) => {
+            state.hotRecommendData = payload
+        }).addCase(HomeLongforDataAction.fulfilled, (state, { payload }) => {
+            state.longForData = payload
         })
     }
 })
