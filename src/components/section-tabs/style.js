@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SectionTabsDiv = styled.div`
   margin-top: 30px;
   margin-bottom: 10px;
-  display: flex;
+
   .item {
     box-sizing: border-box;
     flex-basis: 120px;

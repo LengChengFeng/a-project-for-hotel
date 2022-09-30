@@ -12,6 +12,9 @@ export default function HomeSectionV2(props) {
     const [name, setName] = useState(selectName)
     //整理tabs的数据
     const tabsData = infoData?.dest_address?.map(item => item.name)
+    tabsData.push("cba")
+    tabsData.push("cda")
+    tabsData.push("cea")
     //tabs的回调拿到数据
     const tabClick = (item, index) => {
         setName(item)
