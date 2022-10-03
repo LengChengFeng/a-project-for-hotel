@@ -21,6 +21,7 @@ export default function EntireRoomList() {
     }, [params])
 
     const handlePaginationChange = (page, size) => {
+        window.scrollTo(0, 0)
         const newParams = { ...params }
         newParams.offset = page * 20
         newParams.size = size
