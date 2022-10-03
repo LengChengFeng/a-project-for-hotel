@@ -7,6 +7,7 @@ export const HeaderRightDiv = styled.div`
   align-items: center;
   color: ${(props) => props.theme.text.primaryColor};
   font-weight: 600;
+  z-index: 999;
   .btns {
     display: flex;
     box-sizing: content-box;
